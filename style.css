@@ -1,0 +1,56 @@
+:root{
+    --gradient-primary: #3A647B;
+    --gradient-secondary: #37E35D;
+    --font: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.4em;
+    vertical-align: baseline;
+    text-decoration: none;
+    outline: 0;
+}
+
+body{
+    text-align: center;
+    background: #3A647B;
+    background: linear-gradient(to right, var(--gradient-primary), var(--gradient-secondary));
+    color: var(--font);
+    padding: auto;
+}
+
+header{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-size: 8vh;
+}
+
+img{
+    height: 40vh;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    height:4vh;
+    width: 30vh;
+    margin-right: 0.2vw;
+    font-size: larger;
+}
+
+button{
+    height: 4vh;
+    width: 5vw;
+    border-radius: 0.3vw;
+}
