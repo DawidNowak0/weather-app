@@ -6,7 +6,29 @@ function search(){
     fetchPromise.then((response) => {
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
-            console.log(data.address)
+            console.log(data.address);
+
+            console.log('');
+            console.log('currentConditions');
+
+            console.log(data.currentConditions.cloudcover);
+            console.log(data.currentConditions.conditions);
+            console.log(data.currentConditions.datetime);
+            console.log(data.currentConditions.temp);
+            console.log(data.currentConditions.uvindex);
+            console.log(data.currentConditions.windspeed);
+
+            for(let i = 0; i < 15; i++){
+                console.log('');
+                console.log('days', i+1);
+
+                console.log(data.days[i].cloudcover);
+                console.log(data.days[i].conditions);
+                console.log(data.days[i].datetime);
+                console.log(data.days[i].temp);
+                console.log(data.days[i].uvindex);
+                console.log(data.days[i].windspeed);
+            };
         });
     });
 }
