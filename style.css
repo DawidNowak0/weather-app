@@ -54,3 +54,7 @@ button{
     width: 5vw;
     border-radius: 0.3vw;
 }
+
+.logo{
+    height: 20vh;
+}

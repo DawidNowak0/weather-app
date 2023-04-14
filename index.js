@@ -1,9 +1,17 @@
 function search(){
     const location = document.querySelector('.location').value;
 
-    const fetchPromise = fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/WALBRZYCH?unitGroup=us&key=KVLNCPER3AFYHKHH7V37JH8T8&contentType=json');
+    if(location === ""){
+        alert("Enter a location");
+        return;
+    };
 
-    fetchPromise.then((response) => {
+    const str1 ='https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
+    const str2 = str1.concat(location);
+
+    fetch(str2.concat('?unitGroup=metric&key=KVLNCPER3AFYHKHH7V37JH8T8&contentType=json'))
+
+    .then((response) => {
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
             console.log(data.resolvedAddress)
@@ -35,4 +43,6 @@ function search(){
             };
         });
     });
-}
+
+    document.querySelector("main").innerHTML = '<img src="logo.png" alt="" class="logo">';
+};
