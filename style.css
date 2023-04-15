@@ -57,4 +57,10 @@ button{
 
 .logo{
     height: 20vh;
+    grid-column: 1/3;
+}
+
+.foreCast{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }

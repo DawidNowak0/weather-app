@@ -14,22 +14,32 @@ function search(){
     .then((response) => {
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
-            console.log(data.resolvedAddress)
 
-            console.log('')
-            console.log('currentConditions')
+            document.querySelector("main").innerHTML += "<div>";
+            document.querySelector("main").innerHTML += data.currentConditions.datetime;
+            document.querySelector("main").innerHTML +=  data.resolvedAddress;
+            document.querySelector("main").innerHTML +=  "<div>";
 
             console.log(data.alerts[0])
             console.log(data.description)
             
+            document.querySelector("main").innerHTML += "<div>";
+            document.querySelector("main").innerHTML += data.currentConditions.temp;
+            document.querySelector("main").innerHTML += " C";
+            document.querySelector("main").innerHTML += "</div>";
 
-            console.log(data.currentConditions.cloudcover)
-            console.log(data.currentConditions.conditions)
-            console.log(data.currentConditions.datetime)
-            console.log(data.currentConditions.temp)
-            console.log(data.currentConditions.uvindex)
-            console.log(data.currentConditions.windspeed)
+            document.querySelector("main").innerHTML += "<div>";
+            document.querySelector("main").innerHTML += data.currentConditions.windspeed;
+            document.querySelector("main").innerHTML += " Windspeed ";
+            document.querySelector("main").innerHTML += data.currentConditions.uvindex;
+            document.querySelector("main").innerHTML += " UV";
+            document.querySelector("main").innerHTML += "</div>";
 
+            document.querySelector("main").innerHTML += "<div>";
+            document.querySelector("main").innerHTML += data.currentConditions.cloudcover;
+            document.querySelector("main").innerHTML += data.currentConditions.conditions;
+            document.querySelector("main").innerHTML += "</div>";
+            
             for(let i = 0; i < 15; i++){
                 console.log('')
                 console.log('day', i+1)
@@ -43,6 +53,6 @@ function search(){
             };
         });
     });
-
+    document.querySelector("main").classList.add("foreCast");
     document.querySelector("main").innerHTML = '<img src="logo.png" alt="" class="logo">';
 };
