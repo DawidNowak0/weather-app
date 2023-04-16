@@ -10,10 +10,12 @@
 <body>
     <header><h1>Weather App</h1></header>
     <main>
-        <img src="logo.png" alt="" id="logo">
-        <h2>Enter a location</h2>
+        <img src="logo.png" alt="" class="logo">
+        <label for="location">
+            <h2>Enter a location</h2>
+        </label>
         <div class="search">
-            <input type="text" class="location">
+            <input type="text" id="location">
             <button onclick="search()">Search</button>
         </div>
     </main>

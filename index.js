@@ -1,5 +1,5 @@
 function search(){
-    const location = document.querySelector('.location').value;
+    const location = document.querySelector('#location').value;
 
     if(location === ""){
         alert("Enter a location");
@@ -15,30 +15,22 @@ function search(){
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
 
-            document.querySelector("main").innerHTML += "<div>";
-            document.querySelector("main").innerHTML += data.currentConditions.datetime;
-            document.querySelector("main").innerHTML +=  data.resolvedAddress;
-            document.querySelector("main").innerHTML +=  "<div>";
+            document.querySelector(".foreCast").innerText += data.currentConditions.datetime;
+            document.querySelector(".foreCast").innerText +=  data.resolvedAddress;
 
             console.log(data.alerts[0])
             console.log(data.description)
             
-            document.querySelector("main").innerHTML += "<div>";
-            document.querySelector("main").innerHTML += data.currentConditions.temp;
-            document.querySelector("main").innerHTML += " C";
-            document.querySelector("main").innerHTML += "</div>";
+            document.querySelector(".foreCast").innerText += data.currentConditions.temp;
+            document.querySelector(".foreCast").innerText += " C";
 
-            document.querySelector("main").innerHTML += "<div>";
-            document.querySelector("main").innerHTML += data.currentConditions.windspeed;
-            document.querySelector("main").innerHTML += " Windspeed ";
-            document.querySelector("main").innerHTML += data.currentConditions.uvindex;
-            document.querySelector("main").innerHTML += " UV";
-            document.querySelector("main").innerHTML += "</div>";
+            document.querySelector(".foreCast").innerText += data.currentConditions.windspeed;
+            document.querySelector(".foreCast").innerText += " Windspeed ";
+            document.querySelector(".foreCast").innerText += data.currentConditions.uvindex;
+            document.querySelector(".foreCast").innerText += " UV";
 
-            document.querySelector("main").innerHTML += "<div>";
-            document.querySelector("main").innerHTML += data.currentConditions.cloudcover;
-            document.querySelector("main").innerHTML += data.currentConditions.conditions;
-            document.querySelector("main").innerHTML += "</div>";
+            document.querySelector(".foreCast").innerText += data.currentConditions.cloudcover;
+            document.querySelector(".foreCast").innerText += data.currentConditions.conditions;
             
             for(let i = 0; i < 15; i++){
                 console.log('')
@@ -53,6 +45,5 @@ function search(){
             };
         });
     });
-    document.querySelector("main").classList.add("foreCast");
-    document.querySelector("main").innerHTML = '<img src="logo.png" alt="" class="logo">';
+    document.querySelector("main").innerHTML ='<img src="logo.png" alt=""><div class="foreCast"></div>';
 };
