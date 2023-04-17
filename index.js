@@ -8,9 +8,9 @@ function search(){
 
     const str1 ='https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
     const str2 = str1.concat(location);
+    const apiRequest = str2.concat('?unitGroup=metric&key=KVLNCPER3AFYHKHH7V37JH8T8&contentType=json');
 
-    fetch(str2.concat('?unitGroup=metric&key=KVLNCPER3AFYHKHH7V37JH8T8&contentType=json'))
-
+    fetch(apiRequest)
     .then((response) => {
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
