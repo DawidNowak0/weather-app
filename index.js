@@ -13,23 +13,22 @@ function search(){
     .then((response) => {
         const jsonPromise = response.json();
         jsonPromise.then((data) => {
-
-            document.querySelector(".foreCast").innerText += data.currentConditions.datetime;
-            document.querySelector(".foreCast").innerText +=  data.resolvedAddress;
+            document.querySelector("#date").innerText += data.currentConditions.datetime;
+            document.querySelector("#date").innerText +=  data.resolvedAddress;
 
             console.log(data.alerts[0])
             console.log(data.description)
             
-            document.querySelector(".foreCast").innerText += data.currentConditions.temp;
-            document.querySelector(".foreCast").innerText += " C";
+            document.querySelector("#temp").innerText += data.currentConditions.temp;
+            document.querySelector("#temp").innerText += " C";
 
-            document.querySelector(".foreCast").innerText += data.currentConditions.windspeed;
-            document.querySelector(".foreCast").innerText += " Windspeed ";
-            document.querySelector(".foreCast").innerText += data.currentConditions.uvindex;
-            document.querySelector(".foreCast").innerText += " UV";
+            document.querySelector("#wind").innerText += data.currentConditions.windspeed;
+            document.querySelector("#wind").innerText += " Windspeed";
+            document.querySelector("#wind").innerText += data.currentConditions.uvindex;
+            document.querySelector("#wind").innerText += " UV";
 
-            document.querySelector(".foreCast").innerText += data.currentConditions.cloudcover;
-            document.querySelector(".foreCast").innerText += data.currentConditions.conditions;
+            document.querySelector("#cloud").innerText += data.currentConditions.cloudcover;
+            document.querySelector("#cloud").innerText += data.currentConditions.conditions;
             
             for(let i = 0; i < 15; i++){
                 console.log('')
@@ -45,4 +44,5 @@ function search(){
         });
     });
     document.querySelector("main").innerHTML ='<img src="logo.svg" alt=""><div class="foreCast"></div>';
+    document.querySelector(".foreCast").innerHTML ='<div id="date"></div><div id="temp"></div><div id="wind"></div><div id="cloud"></div>';
 };
