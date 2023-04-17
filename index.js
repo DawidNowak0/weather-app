@@ -1,13 +1,13 @@
 function search(){
     const location = document.querySelector('#location').value;
-    const key = "KVLNCPER3AFYHKHH7V37JH8T8";
+    const apiKey = "KVLNCPER3AFYHKHH7V37JH8T8";
 
     if(location === ""){
         alert("Enter a location");
         return;
     };
 
-    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${key}&contentType=json`;
+    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}&contentType=json`;
 
     fetch(apiRequest)
     .then((response) => {
@@ -44,5 +44,5 @@ function search(){
             };
         });
     });
-    document.querySelector("main").innerHTML ='<img src="logo.png" alt=""><div class="foreCast"></div>';
+    document.querySelector("main").innerHTML ='<img src="logo.svg" alt=""><div class="foreCast"></div>';
 };
