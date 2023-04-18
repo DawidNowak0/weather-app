@@ -1,7 +1,7 @@
 function search(){
     const location = document.querySelector('#location').value;
     const apiKey = "KVLNCPER3AFYHKHH7V37JH8T8";
-    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}&contentType=json`;
+    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}`;
 
     if(location === ""){
         return alert("Enter a location");
