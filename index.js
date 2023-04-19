@@ -1,7 +1,8 @@
 function search(){
     const location = document.querySelector('#location').value;
+    const unit = document.querySelector('#unit').value;
     const apiKey = "KVLNCPER3AFYHKHH7V37JH8T8";
-    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}`;
+    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unit}&key=${apiKey}`;
 
     if(location === ""){
         return alert("Enter a location");
@@ -31,7 +32,7 @@ function search(){
         console.log(res.description)
 
         document.querySelector("#temp").innerText += res.currentConditions.temp;
-        document.querySelector("#temp").innerText += " C";
+        document.querySelector("#temp").innerText += " C/F";
 
         document.querySelector("#wind").innerText += res.currentConditions.windspeed;
         document.querySelector("#wind").innerText += " Windspeed";
