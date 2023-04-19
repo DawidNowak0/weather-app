@@ -8,8 +8,8 @@ function search(){
         return alert("Enter a location");
     };
 
-    document.querySelector("main").innerHTML ='<img src="logo.svg" alt=""><div class="foreCast"></div>';
-    document.querySelector(".foreCast").innerHTML ='<div id="date"></div><div id="temp"></div><div id="wind"></div><div id="cloud"></div>';
+    document.querySelector("main").innerHTML = '<img src="logo.svg" alt=""><div class="foreCast"></div>';
+    document.querySelector(".foreCast").innerHTML = '<div class="aa"><div id="date"></div><div id="adress"></div></div><div class="aa"><div id="temp"></div></div><div class="aa"><div id="wind"></div><div id="uv"></div></div><div class="aa"><div id="cloud"></div></div>';
 
     fetch(apiRequest)
     .then(res => {
@@ -26,7 +26,7 @@ function search(){
     })
     .then((res) =>{
         document.querySelector("#date").innerText += res.currentConditions.datetime;
-        document.querySelector("#date").innerText +=  res.resolvedAddress;
+        document.querySelector("#adress").innerText +=  res.resolvedAddress;
 
         console.log(res.alerts[0])
         console.log(res.description)
@@ -36,8 +36,8 @@ function search(){
 
         document.querySelector("#wind").innerText += res.currentConditions.windspeed;
         document.querySelector("#wind").innerText += " Windspeed";
-        document.querySelector("#wind").innerText += res.currentConditions.uvindex;
-        document.querySelector("#wind").innerText += " UV";
+        document.querySelector("#uv").innerText += res.currentConditions.uvindex;
+        document.querySelector("#uv").innerText += " UV";
 
         document.querySelector("#cloud").innerText += res.currentConditions.cloudcover;
         document.querySelector("#cloud").innerText += res.currentConditions.conditions;
