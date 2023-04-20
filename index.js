@@ -13,12 +13,7 @@ function search(){
     
     fetch(apiRequest)
     .then(res => {
-        if(!res.ok){
-            return res.text().then(text => {throw new Error(text)})
-        }
-        else{
-            return res.json();
-        }
+        return res.json();
     })
     .catch(err =>{
         console.log(err);
@@ -29,7 +24,7 @@ function search(){
     });
 
     document.querySelector("main").innerHTML = '<img src="logo.svg" alt=""><div class="forecast"></div>';
-    document.querySelector(".forecast").innerHTML = '<div class="aa"><div id="date"></div><div id="adress"></div></div><div class="aa"><div id="temp"></div></div><div class="aa"><div id="wind"></div><div id="uv"></div></div><div class="aa"><div id="cloud"></div></div><h2>Show long-term forecast</h2>';
+    document.querySelector(".forecast").innerHTML = '<div ><div id="date"></div><div id="adress"></div></div><div><div id="temp"></div></div><div><div id="wind"></div><div id="uv"></div></div><div><div id="cloud"></div></div><h2>Show long-term forecast</h2>';
 };
 
 function shortTermForecast(res, unit){
