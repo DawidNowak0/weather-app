@@ -1,14 +1,14 @@
 function search(){
     const location = document.querySelector('#location').value;
-    let unit = document.querySelector('#unit').value;
+    let unitGroup = document.querySelector('#unit').value;
     const apiKey = "KVLNCPER3AFYHKHH7V37JH8T8";
-    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unit}&key=${apiKey}`;
+    const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unitGroup}&key=${apiKey}`;
 
-    if(unit === 'metric'){
-        unit = 'C';
+    if(unitGroup === 'metric'){
+        unit = ["C", "km/h"];
     }
     else{
-        unit = 'F';
+        unit = ["F", "MPH"];
     };
     
     fetch(apiRequest)
@@ -35,10 +35,10 @@ function shortTermForecast(res, unit){
     console.log(res.description)
 
     document.querySelector("#temp").innerText += res.currentConditions.temp;
-    document.querySelector("#temp").innerText += ` ${unit}`;
+    document.querySelector("#temp").innerText += ` ${unit[0]}`;
 
-    document.querySelector("#wind").innerText += res.currentConditions.windspeed;
     document.querySelector("#wind").innerText += " Windspeed";
+    document.querySelector("#wind").innerText += ` ${res.currentConditions.windspeed} ${unit[1]}`;
     document.querySelector("#uv").innerText += res.currentConditions.uvindex;
     document.querySelector("#uv").innerText += " UV";
 
@@ -54,6 +54,6 @@ function longTermForecast(res, unit){
     document.querySelector(".forecast").innerHTML = '';
 
     for(let i = 0; i < 15; i++){
-        document.querySelector('main').innerHTML += `<h2>Day ${i+1}</h2><div>${res.days[i].datetime}</div><div>${res.days[i].temp} ${unit}</div><div>${res.days[i].windspeed} Windspeed</div><div>${res.days[i].uvindex} UV</div><div>${res.days[i].cloudcover}</div><div>${res.days[i].conditions}</div>`;
+        document.querySelector('main').innerHTML += `<h2>Day ${i+1}</h2><div>${res.days[i].datetime}</div><div>${res.days[i].temp} ${unit[0]}</div><div>Windspeed ${res.days[i].windspeed} ${unit[1]}</div><div>${res.days[i].uvindex} UV</div><div>${res.days[i].cloudcover}</div><div>${res.days[i].conditions}</div>`;
     };
 };
