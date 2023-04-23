@@ -24,10 +24,13 @@ function search(){
     });
 
     document.querySelector("main").innerHTML = '<img src="logo.svg" alt=""><div class="forecast"></div>';
-    document.querySelector(".forecast").innerHTML = '<div ><div id="date"></div><div id="adress"></div></div><div><div id="temp"></div></div><div><div id="wind"></div><div id="uv"></div></div><div><div id="cloud"></div></div><h2>Show long-term forecast</h2>';
 };
 
 function shortTermForecast(res, unit){
+    document.querySelector("main").innerHTML = '<img src="logo.svg" alt=""><div class="forecast"></div>';
+    document.querySelector(".forecast").innerHTML = '<div ><div id="date"></div><div id="adress"></div></div><div><div id="temp"></div></div><div><div id="wind"></div><div id="uv"></div></div><div><div id="cloud"></div></div><h2>Show long-term forecast</h2>';
+
+
     document.querySelector("#date").innerText += res.currentConditions.datetime;
     document.querySelector("#adress").innerText +=  res.resolvedAddress;
 
@@ -51,10 +54,14 @@ function shortTermForecast(res, unit){
 };
 
 function longTermForecast(res, unit){
-    document.querySelector("main").innerHTML = '<img src="logo.svg" alt="">';
+    document.querySelector("main").innerHTML = '<img src="logo.svg" alt=""><div class="forecast"><h2>Show short-term forecast</h2></div>';
 
     for(let i = 0; i < 15; i++){
         document.querySelector('main').innerHTML += `<div id='day${i+1}' class='days'></div>`;
-        document.querySelector(`#day${i+1}`).innerHTML += `<h2>Day ${i+1}</h2><div>${res.days[i].datetime}</div><div>${res.days[i].temp} ${unit[0]}</div><div>Windspeed ${res.days[i].windspeed} ${unit[1]}</div><div>${res.days[i].uvindex} UV</div><div>${res.days[i].cloudcover}</div><div id='conditions'>${res.days[i].conditions}</div>`;
+        document.querySelector(`#day${i+1}`).innerHTML += `<h3>Day ${i+1}</h3><div>${res.days[i].datetime}</div><div>${res.days[i].temp} ${unit[0]}</div><div>Windspeed ${res.days[i].windspeed} ${unit[1]}</div><div>${res.days[i].uvindex} UV</div><div>${res.days[i].cloudcover}</div><div id='conditions'>${res.days[i].conditions}</div>`;
     };
+
+    document.querySelector('h2').addEventListener("click", () =>{
+        shortTermForecast(res, unit);
+    });
 };
