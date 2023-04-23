@@ -12,6 +12,7 @@
     vertical-align: baseline;
     text-decoration: none;
     outline: 0;
+    font-size: 1.1rem;
 }
 
 body{
@@ -63,6 +64,9 @@ img{
 .forecast{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .forecast h2{
@@ -78,4 +82,18 @@ select{
     padding: 0.4vh;
     font-size: 1rem;
     margin-bottom: 0.7vh;
+}
+
+.days{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px black solid;
+}
+
+#conditions{
+    grid-column: 1/3;
 }
