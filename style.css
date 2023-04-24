@@ -98,3 +98,7 @@ select{
 #conditions{
     grid-column: 1/3;
 }
+
+h3{
+    font-size: 1.2rem;
+}

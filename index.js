@@ -5,10 +5,10 @@ function search(){
     const apiRequest = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=${unitGroup}&key=${apiKey}`;
 
     if(unitGroup === 'metric'){
-        unit = ["C", "km/h"];
+        unit = ["℃", "km/h"];
     }
     else{
-        unit = ["F", "MPH"];
+        unit = ["°F", "MPH"];
     };
     
     fetch(apiRequest)
