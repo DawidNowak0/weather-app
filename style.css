@@ -2,6 +2,7 @@
     --gradient-primary: #3A647B;
     --gradient-secondary: #37E35D;
     --font: white;
+    --button-hover: #32c75257;
 }
 
 *{
@@ -76,7 +77,7 @@ img{
 }
 
 .forecast h2:hover{
-    background-color:grey;
+    background-color:var(--button-hover);
 }
 
 select{
