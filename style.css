@@ -107,3 +107,11 @@ select {
 h3 {
   font-size: 1.2rem;
 }
+
+.leftSide {
+  border-right: 1px black solid;
+}
+
+#showLongTermBtn {
+  margin-top: 2.5vh;
+}

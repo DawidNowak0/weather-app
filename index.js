@@ -31,13 +31,10 @@ function shortTermForecast(res, unit) {
   document.querySelector("main").innerHTML =
     '<img src="logo.svg" alt=""><div class="forecast"></div>';
   document.querySelector(".forecast").innerHTML =
-    '<div ><div id="date"></div><div id="adress"></div></div><div><div id="temp"></div></div><div><div id="wind"></div><div id="uv"></div></div><div><div id="cloud"></div></div><h2>Show long-term forecast</h2>';
+    '<div class="leftSide"><div id="date"></div><div id="adress"></div></div><div><div id="temp"></div></div><div class="leftSide"><div id="wind"></div><div id="uv"></div></div><div><div id="cloud"></div></div><h2 id="showLongTermBtn">Show long-term forecast</h2>';
 
   document.querySelector("#date").innerText += res.currentConditions.datetime;
   document.querySelector("#adress").innerText += res.resolvedAddress;
-
-  console.log(res.alerts[0]);
-  console.log(res.description);
 
   document.querySelector("#temp").innerText += res.currentConditions.temp;
   document.querySelector("#temp").innerText += ` ${unit[0]}`;
